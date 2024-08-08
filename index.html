@@ -145,6 +145,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/08/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/08/test/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-08 14:36:54 / Modified: 14:37:24" itemprop="dateCreated datePublished" datetime="2024-08-08T14:36:54+08:00">2024-08-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在Git中，<code>main</code>和<code>master</code>是分支名称，通常用于代表代码库的主要分支。最初，Git的默认分支名称是<code>master</code>，但在2020年左右，许多项目和托管服务（如GitHub）将默认分支名称更改为<code>main</code>。这种变更的主要原因是为了使用更中立的术语。</p>
+<h3 id="主要区别"><a href="#主要区别" class="headerlink" title="主要区别"></a>主要区别</h3><ol>
+<li><p><strong>命名惯例</strong>：</p>
+<ul>
+<li><strong>master</strong>：这是Git历史上默认的主要分支名称。</li>
+<li><strong>main</strong>：这是最近推广的新的默认主要分支名称，旨在使用更中立和包容的术语。</li>
+</ul>
+</li>
+<li><p><strong>技术差异</strong>：</p>
+<ul>
+<li>从技术角度看，<code>main</code>和<code>master</code>没有区别。它们都是分支名称，具有相同的功能和行为。</li>
+<li>你可以在项目中自由选择任意分支名称，重要的是团队一致性和约定。</li>
+</ul>
+</li>
+</ol>
+<h3 id="过渡到main"><a href="#过渡到main" class="headerlink" title="过渡到main"></a>过渡到<code>main</code></h3><p>如果你的项目仍然使用<code>master</code>分支，并且你想切换到<code>main</code>，可以按照以下步骤进行转换：</p>
+<ol>
+<li><p>**重命名本地<code>master</code>分支为<code>main</code>**：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m master main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>推送<code>main</code>分支到远程仓库</strong>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更新默认分支设置</strong>：</p>
+<ul>
+<li>在GitHub（或其他托管服务）上，将默认分支更改为<code>main</code>。在GitHub上：<ol>
+<li>打开你的仓库。</li>
+<li>转到 <code>Settings</code>。</li>
+<li>在左侧栏中，点击 <code>Branches</code>。</li>
+<li>在 <code>Default branch</code> 部分，选择 <code>main</code>。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>删除远程<code>master</code>分支</strong>（可选）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更新本地克隆的其他开发者</strong>：<br>每个开发者需要同步他们的本地仓库：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git branch -u origin/main main</span><br><span class="line">git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>在进行分支重命名之前，请确保团队所有成员都了解并同意这一更改。</li>
+<li>更新CI&#x2F;CD配置文件、脚本和文档，以反映新的分支名称。</li>
+<li>如果你使用外部工具或服务（例如CI&#x2F;CD系统、部署工具等），确保它们支持并正确配置新的默认分支名称。</li>
+</ul>
+<p>通过这些步骤，你可以将项目从<code>master</code>分支平稳过渡到<code>main</code>分支，采用更中立的术语，同时保持版本控制工作流程的一致性。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/08/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -278,7 +382,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
